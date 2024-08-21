@@ -1,0 +1,46 @@
+# classe main
+from Medico import Medico
+from Especialidade import Especialidade
+
+medico1 = Medico(nome="Dr. Lucas de Sousa e Silva", CRM="123456", ativo='')
+medico2 = Medico(nome="Dra. Ana Maria Salomao", CRM="654321", ativo='')
+medico3 = Medico(nome="Dr. Carlos Jose Pereira", CRM="112233", ativo='')
+
+especialidade1 = Especialidade(descricao="Cardiologia")
+especialidade2 = Especialidade(descricao="Neurologia")
+especialidade3 = Especialidade(descricao="Ortopedia")
+
+medico1.adicionar_especialidade(especialidade1)
+medico1.adicionar_especialidade(especialidade2)
+
+medico2.adicionar_especialidade(especialidade2)
+medico2.adicionar_especialidade(especialidade1)
+
+medico3.adicionar_especialidade(especialidade3)
+
+# classe medico
+class Medico:
+    def __init__(self, nome, CRM, ativo):
+        self.nome = nome
+        self.CRM = CRM
+        self.ativo = ativo
+        self.especialidades = []
+
+    def adicionar_especialidade(self, especialidade):
+        if especialidade not in self.especialidades:
+            self.especialidades.append(especialidade)
+
+    def listar_especialidades(self):
+        return [especialidade.descricao for especialidade in self.especialidades]
+
+#classe especialidade
+class Especialidade:
+    def __init__(self, descricao):
+        self.descricao = descricao
+        self.medicos = []
+
+    def adicionar_medico(self, medico):
+        if medico not in self.medicos:
+            self.medicos.append(medico)
+
+c
